@@ -2,13 +2,6 @@ import "/style.css";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
-function importAll(r) {
-  return r.keys().map(r);
-}
-
-const images = importAll(require.context("./", false, /\.(png|jpe?g|svg)$/));
-console.log(images);
-
 function randomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
