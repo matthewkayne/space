@@ -24,35 +24,6 @@ camera.position.setZ(30);
 
 renderer.render(scene, camera);
 
-const rockBaseColour = new THREE.TextureLoader().load(
-  "./images/rock/rock-base-colour.jpg"
-);
-const rockNormal = new THREE.TextureLoader().load(
-  "./images/rock/rock-normal.jpg"
-);
-const rockHeight = new THREE.TextureLoader().load(
-  "./images/rock/rock-height.png"
-);
-const rockRoughness = new THREE.TextureLoader().load(
-  "./images/rock/rock-roughness.jpg"
-);
-const rockAmbientOcclusion = new THREE.TextureLoader().load(
-  "./images/rock/rock-ambient-occlusion.jpg"
-);
-const rock = new THREE.Mesh(
-  new THREE.SphereGeometry(6, 64, 64),
-  new THREE.MeshStandardMaterial({
-    map: rockBaseColour,
-    normalMap: rockNormal,
-    displacementMap: rockHeight,
-    displacementScale: 0.2,
-    roughnessMap: rockRoughness,
-    roughness: 0.5,
-    aoMap: rockAmbientOcclusion,
-    aoMapIntensity: 0.2,
-  })
-);
-
 const marsBaseColour = new THREE.TextureLoader().load(
   "./images/mars/mars-base-colour.jpeg"
 );
@@ -83,11 +54,7 @@ const neptune = new THREE.Mesh(
   })
 );
 
-scene.add(rock, mars, neptune);
-
-rock.position.z = randomInt(-20, 20);
-rock.position.x = randomInt(-30, 30);
-rock.position.y = randomInt(-45, 45);
+scene.add(mars, neptune);
 
 mars.position.z = randomInt(-20, 20);
 mars.position.x = randomInt(-30, 30);
@@ -118,6 +85,47 @@ function addStar() {
 
 Array(200).fill().forEach(addStar);
 
+function addRock() {
+  const rockBaseColour = new THREE.TextureLoader().load(
+    "./images/rock/rock-base-colour.jpg"
+  );
+  const rockNormal = new THREE.TextureLoader().load(
+    "./images/rock/rock-normal.jpg"
+  );
+  const rockHeight = new THREE.TextureLoader().load(
+    "./images/rock/rock-height.png"
+  );
+  const rockRoughness = new THREE.TextureLoader().load(
+    "./images/rock/rock-roughness.jpg"
+  );
+  const rockAmbientOcclusion = new THREE.TextureLoader().load(
+    "./images/rock/rock-ambient-occlusion.jpg"
+  );
+  const rock = new THREE.Mesh(
+    new THREE.SphereGeometry(1, 12, 12),
+    new THREE.MeshStandardMaterial({
+      map: rockBaseColour,
+      normalMap: rockNormal,
+      displacementMap: rockHeight,
+      displacementScale: 0.2,
+      roughnessMap: rockRoughness,
+      roughness: 0.5,
+      aoMap: rockAmbientOcclusion,
+      aoMapIntensity: 0.2,
+    })
+  );
+
+  const [x, y, z] = Array(3)
+    .fill()
+    .map(() => THREE.MathUtils.randFloatSpread(100));
+
+  rock.position.set(x, y, z);
+
+  scene.add(rock);
+}
+
+Array(10).fill().forEach(addRock);
+
 const spaceTexture = new THREE.TextureLoader().load("./images/space.jpg");
 scene.background = spaceTexture;
 
@@ -135,10 +143,6 @@ moveCamera();
 function animate() {
   requestAnimationFrame(animate);
   controls.update();
-
-  rock.rotation.x += 0.01;
-  rock.rotation.y += 0.005;
-  rock.rotation.z += 0.01;
 
   mars.rotation.x += 0.01;
   mars.rotation.y += 0.005;
