@@ -72,7 +72,18 @@ const mars = new THREE.Mesh(
   })
 );
 
-scene.add(rock, mars);
+const neptuneBaseColour = new THREE.TextureLoader().load(
+  "./images/neptune/neptune-base-colour.jpeg"
+);
+
+const neptune = new THREE.Mesh(
+  new THREE.SphereGeometry(6, 64, 64),
+  new THREE.MeshStandardMaterial({
+    map: neptuneBaseColour,
+  })
+);
+
+scene.add(rock, mars, neptune);
 
 rock.position.z = randomInt(-20, 20);
 rock.position.x = randomInt(-30, 30);
@@ -81,6 +92,10 @@ rock.position.y = randomInt(-45, 45);
 mars.position.z = randomInt(-20, 20);
 mars.position.x = randomInt(-30, 30);
 mars.position.y = randomInt(-45, 45);
+
+neptune.position.z = randomInt(-20, 20);
+neptune.position.x = randomInt(-30, 30);
+neptune.position.y = randomInt(-45, 45);
 
 const ambientLight = new THREE.AmbientLight(0xffffff);
 
@@ -106,8 +121,6 @@ Array(200).fill().forEach(addStar);
 const spaceTexture = new THREE.TextureLoader().load("./images/space.jpg");
 scene.background = spaceTexture;
 
-const objects = [rock, mars];
-
 function moveCamera() {
   const t = document.body.getBoundingClientRect().top;
 
@@ -130,6 +143,10 @@ function animate() {
   mars.rotation.x += 0.01;
   mars.rotation.y += 0.005;
   mars.rotation.z += 0.01;
+
+  neptune.rotation.x += 0.01;
+  neptune.rotation.y += 0.005;
+  neptune.rotation.z += 0.01;
 
   renderer.render(scene, camera);
 }
