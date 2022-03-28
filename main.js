@@ -1,3 +1,4 @@
+import "./style.css";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
@@ -131,6 +132,14 @@ scene.background = spaceTexture;
 
 function moveCamera() {
   const t = document.body.getBoundingClientRect().top;
+
+  mars.rotation.x += 0.05;
+  mars.rotation.y += 0.075;
+  mars.rotation.z += 0.05;
+
+  neptune.rotation.x += 0.05;
+  neptune.rotation.y += 0.075;
+  neptune.rotation.z += 0.05;
 
   camera.position.z = t * -0.01;
   camera.position.x = t * -0.0002;
