@@ -26,13 +26,13 @@ camera.position.setZ(30);
 renderer.render(scene, camera);
 
 const marsBaseColour = new THREE.TextureLoader().load(
-  "./images/mars/mars-base-colour.jpeg"
+  "/public/mars/mars-base-colour.jpeg"
 );
 const marsNormal = new THREE.TextureLoader().load(
-  "./images/mars/mars-normal.jpeg"
+  "/public/mars/mars-normal.jpeg"
 );
 const marsHeight = new THREE.TextureLoader().load(
-  "./images/mars/mars-height.jpg"
+  "/public/mars/mars-height.jpg"
 );
 const mars = new THREE.Mesh(
   new THREE.SphereGeometry(6, 64, 64),
@@ -45,7 +45,7 @@ const mars = new THREE.Mesh(
 );
 
 const neptuneBaseColour = new THREE.TextureLoader().load(
-  "./images/neptune/neptune-base-colour.jpeg"
+  "/public/neptune/neptune-base-colour.jpeg"
 );
 
 const neptune = new THREE.Mesh(
@@ -88,19 +88,19 @@ Array(200).fill().forEach(addStar);
 
 function addRock() {
   const rockBaseColour = new THREE.TextureLoader().load(
-    "./images/rock/rock-base-colour.jpg"
+    "/public/rock/rock-base-colour.jpg"
   );
   const rockNormal = new THREE.TextureLoader().load(
-    "./images/rock/rock-normal.jpg"
+    "/public/rock/rock-normal.jpg"
   );
   const rockHeight = new THREE.TextureLoader().load(
-    "./images/rock/rock-height.png"
+    "/public/rock/rock-height.png"
   );
   const rockRoughness = new THREE.TextureLoader().load(
-    "./images/rock/rock-roughness.jpg"
+    "/public/rock/rock-roughness.jpg"
   );
   const rockAmbientOcclusion = new THREE.TextureLoader().load(
-    "./images/rock/rock-ambient-occlusion.jpg"
+    "/public/rock/rock-ambient-occlusion.jpg"
   );
   const rock = new THREE.Mesh(
     new THREE.SphereGeometry(1, 12, 12),
@@ -127,7 +127,7 @@ function addRock() {
 
 Array(10).fill().forEach(addRock);
 
-const spaceTexture = new THREE.TextureLoader().load("./images/space.jpg");
+const spaceTexture = new THREE.TextureLoader().load("/public/space.jpg");
 scene.background = spaceTexture;
 
 function moveCamera() {
