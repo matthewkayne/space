@@ -3,8 +3,12 @@
 
 Web browser based space simulation
 
-🧠 Installation
+## 🧠 Installation
 
 ```
 npm install
 ```
+
+## 🕸 Live Website
+
+Click [here](https://www.matthewkayne.me) for the live site
