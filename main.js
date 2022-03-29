@@ -1,7 +1,16 @@
 import "/style.css";
-
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import marsBaseColourURL from "./images/mars-base-colour.jpg";
+import marsHeightURL from "./images/mars-height.jpg";
+import marsNormalURL from "./images/mars-normal.jpg";
+import neptuneBaseColourURL from "./images/neptune-base-colour.jpg";
+import rockAmbientOcclusionURL from "./images/rock-ambient-occlusion.jpg";
+import rockBaseColourURL from "./images/rock-base-colour.jpg";
+import rockHeightURL from "./images/rock-height.png";
+import rockNormalURL from "./images/rock-normal.jpg";
+import rockRoughnessURL from "./images/rock-roughness.jpg";
+import spaceURL from "./images/space.jpg";
 
 function randomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
@@ -26,15 +35,9 @@ camera.position.setZ(30);
 
 renderer.render(scene, camera);
 
-const marsBaseColour = new THREE.TextureLoader().load(
-  "./images/mars/mars-base-colour.jpeg"
-);
-const marsNormal = new THREE.TextureLoader().load(
-  "./images/mars/mars-normal.jpeg"
-);
-const marsHeight = new THREE.TextureLoader().load(
-  "./images/mars/mars-height.jpg"
-);
+const marsBaseColour = new THREE.TextureLoader().load(marsBaseColourURL);
+const marsNormal = new THREE.TextureLoader().load(marsNormalURL);
+const marsHeight = new THREE.TextureLoader().load(marsHeightURL);
 const mars = new THREE.Mesh(
   new THREE.SphereGeometry(6, 64, 64),
   new THREE.MeshStandardMaterial({
@@ -45,9 +48,7 @@ const mars = new THREE.Mesh(
   })
 );
 
-const neptuneBaseColour = new THREE.TextureLoader().load(
-  "./images/neptune/neptune-base-colour.jpeg"
-);
+const neptuneBaseColour = new THREE.TextureLoader().load(neptuneBaseColourURL);
 
 const neptune = new THREE.Mesh(
   new THREE.SphereGeometry(6, 64, 64),
@@ -88,20 +89,12 @@ function addStar() {
 Array(200).fill().forEach(addStar);
 
 function addRock() {
-  const rockBaseColour = new THREE.TextureLoader().load(
-    "./images/rock/rock-base-colour.jpg"
-  );
-  const rockNormal = new THREE.TextureLoader().load(
-    "./images/rock/rock-normal.jpg"
-  );
-  const rockHeight = new THREE.TextureLoader().load(
-    "./images/rock/rock-height.png"
-  );
-  const rockRoughness = new THREE.TextureLoader().load(
-    "./images/rock/rock-roughness.jpg"
-  );
+  const rockBaseColour = new THREE.TextureLoader().load(rockBaseColourURL);
+  const rockNormal = new THREE.TextureLoader().load(rockNormalURL);
+  const rockHeight = new THREE.TextureLoader().load(rockHeightURL);
+  const rockRoughness = new THREE.TextureLoader().load(rockRoughnessURL);
   const rockAmbientOcclusion = new THREE.TextureLoader().load(
-    "./images/rock/rock-ambient-occlusion.jpg"
+    rockAmbientOcclusionURL
   );
   const rock = new THREE.Mesh(
     new THREE.SphereGeometry(1, 12, 12),
@@ -128,7 +121,7 @@ function addRock() {
 
 Array(10).fill().forEach(addRock);
 
-const spaceTexture = new THREE.TextureLoader().load("./images/space.jpg");
+const spaceTexture = new THREE.TextureLoader().load(spaceURL);
 scene.background = spaceTexture;
 
 function moveCamera() {
