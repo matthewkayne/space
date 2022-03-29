@@ -1,16 +1,16 @@
-import "/style.css";
+import "./public/styles/style.css";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import marsBaseColourURL from "./images/mars-base-colour.jpg";
-import marsHeightURL from "./images/mars-height.jpg";
-import marsNormalURL from "./images/mars-normal.jpg";
-import neptuneBaseColourURL from "./images/neptune-base-colour.jpg";
-import rockAmbientOcclusionURL from "./images/rock-ambient-occlusion.jpg";
-import rockBaseColourURL from "./images/rock-base-colour.jpg";
-import rockHeightURL from "./images/rock-height.png";
-import rockNormalURL from "./images/rock-normal.jpg";
-import rockRoughnessURL from "./images/rock-roughness.jpg";
-import spaceURL from "./images/space.jpg";
+import marsBaseColourURL from "./public/images/mars-base-colour.jpg";
+import marsHeightURL from "./public/images/mars-height.jpg";
+import marsNormalURL from "./public/images/mars-normal.jpg";
+import neptuneBaseColourURL from "./public/images/neptune-base-colour.jpg";
+import rockAmbientOcclusionURL from "./public/images/rock-ambient-occlusion.jpg";
+import rockBaseColourURL from "./public/images/rock-base-colour.jpg";
+import rockHeightURL from "./public/images/rock-height.png";
+import rockNormalURL from "./public/images/rock-normal.jpg";
+import rockRoughnessURL from "./public/images/rock-roughness.jpg";
+import spaceURL from "./public/images/space.jpg";
 
 function randomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
