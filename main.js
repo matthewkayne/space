@@ -1,4 +1,5 @@
 import "/style.css";
+
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
 
@@ -26,13 +27,13 @@ camera.position.setZ(30);
 renderer.render(scene, camera);
 
 const marsBaseColour = new THREE.TextureLoader().load(
-  "/public/mars/mars-base-colour.jpeg"
+  "./images/mars/mars-base-colour.jpeg"
 );
 const marsNormal = new THREE.TextureLoader().load(
-  "/public/mars/mars-normal.jpeg"
+  "./images/mars/mars-normal.jpeg"
 );
 const marsHeight = new THREE.TextureLoader().load(
-  "/public/mars/mars-height.jpg"
+  "./images/mars/mars-height.jpg"
 );
 const mars = new THREE.Mesh(
   new THREE.SphereGeometry(6, 64, 64),
@@ -45,7 +46,7 @@ const mars = new THREE.Mesh(
 );
 
 const neptuneBaseColour = new THREE.TextureLoader().load(
-  "/public/neptune/neptune-base-colour.jpeg"
+  "./images/neptune/neptune-base-colour.jpeg"
 );
 
 const neptune = new THREE.Mesh(
@@ -88,19 +89,19 @@ Array(200).fill().forEach(addStar);
 
 function addRock() {
   const rockBaseColour = new THREE.TextureLoader().load(
-    "/public/rock/rock-base-colour.jpg"
+    "./images/rock/rock-base-colour.jpg"
   );
   const rockNormal = new THREE.TextureLoader().load(
-    "/public/rock/rock-normal.jpg"
+    "./images/rock/rock-normal.jpg"
   );
   const rockHeight = new THREE.TextureLoader().load(
-    "/public/rock/rock-height.png"
+    "./images/rock/rock-height.png"
   );
   const rockRoughness = new THREE.TextureLoader().load(
-    "/public/rock/rock-roughness.jpg"
+    "./images/rock/rock-roughness.jpg"
   );
   const rockAmbientOcclusion = new THREE.TextureLoader().load(
-    "/public/rock/rock-ambient-occlusion.jpg"
+    "./images/rock/rock-ambient-occlusion.jpg"
   );
   const rock = new THREE.Mesh(
     new THREE.SphereGeometry(1, 12, 12),
@@ -127,7 +128,7 @@ function addRock() {
 
 Array(10).fill().forEach(addRock);
 
-const spaceTexture = new THREE.TextureLoader().load("/public/space.jpg");
+const spaceTexture = new THREE.TextureLoader().load("./images/space.jpg");
 scene.background = spaceTexture;
 
 function moveCamera() {
