@@ -5,7 +5,7 @@ canvas {
 }
 
 :root {
-  --dark-bg: rgba(15, 15, 15, 0.95);
+  --dark-bg: rgba(0, 0, 0, 0.5);
   --spacing: 350px;
   font-family: brandon-grotesque, sans-serif;
   font-weight: 400;
@@ -35,13 +35,9 @@ blockquote {
   font-style: normal;
 }
 
-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
-}
-
 header {
+  border-radius: 25px;
+  border: 2px rgba(0, 0, 0, 0.5);
   background: var(--dark-bg);
   -ms-grid-column: 2;
   -ms-grid-column-span: 5;
@@ -73,15 +69,23 @@ blockquote {
 
 blockquote p {
   color: black;
-  background-color: white;
+  background-color: rgba(255, 255, 255, 0.6);
   font-size: 4rem;
   display: inline;
   line-height: 1;
+  padding: 5px;
+  border-radius: 25px;
+  border: 2px rgba(0, 0, 0, 0.5);
 }
 
 .left {
   -ms-grid-column: 6;
   -ms-grid-column-span: 6;
   grid-column: 6 / 12;
+}
+
+.light {
+  border-radius: 25px;
+  border: 2px rgba(0, 0, 0, 0.5);
 }
 /*# sourceMappingURL=style.css.map */
